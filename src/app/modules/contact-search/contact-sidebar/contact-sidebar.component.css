@@ -1,0 +1,38 @@
+.mat-list-base {
+  padding-top: 0;
+}
+
+.mat-list-item {
+  color: #b1b5c0;
+}
+
+.mat-list-item:hover,
+.mat-list-item.list-item-active{
+  color: #fff;
+  background-color: #5bc3b4;
+  border-radius: 25px;
+  width: auto;
+}
+
+.icon-spacer {
+  margin-left: 10px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+i.material-icons {
+  font-size: 16px;
+  vertical-align: middle;
+  top: -3px;
+  float: right;
+}
+
+.customHeader,
+.customHeader.mat-list-item:hover,
+.customHeader.list-item-active{
+  color: #b1b5c0;
+  background: none;
+  cursor: text;
+}

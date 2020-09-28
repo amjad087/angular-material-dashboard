@@ -1,0 +1,77 @@
+
+
+<mat-sidenav-container fullscreen>
+	<mat-sidenav
+		#sidenav
+		mode="side"
+		class="example-sidenav"
+		[ngStyle]="{ 'width.em': sidenavWidth }"
+		opened="true"
+  >
+    <div class="arrHeader" *ngIf="sidenavWidth > 4">
+      <h3>&nbsp;</h3>
+      <mat-icon (click) = "toggleNavWidth()">keyboard_arrow_left</mat-icon>
+    </div>
+    <div class="subHeader" *ngIf="sidenavWidth > 4">
+      <h3>Filters</h3>
+      <div class="btnSubHeader">
+        <button type="button" class="btn btn--grey">Load</button>
+        <button type="button" class="btn btn--green">Save</button>
+      </div>
+    </div>
+    <div class="subHeader" *ngIf="sidenavWidth == 4">
+      <mat-icon (click) = "toggleNavWidth()">keyboard_arrow_right</mat-icon>
+    </div>
+    <mat-selection-list [multiple]="false">
+      <mat-list-option (click) = "onShowDialog($event)">
+        <mat-icon mat-list-icon>store</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Industry</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>business_center</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Title</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>location_on</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Location</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>monetization_on</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Revenue</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>people</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">No of Employees</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>domain</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Type</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>link</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">By Company URL</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>perm_data_setting</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Technologies</div>
+      </mat-list-option>
+      <mat-list-option>
+        <mat-icon mat-list-icon>view_comfy</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Other</div>
+      </mat-list-option>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-list-option class="btnSaveFilters">
+        <mat-icon mat-list-icon>check</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Save Filters</div>
+      </mat-list-option>
+      <mat-list-option class="btClearFilters">
+        <mat-icon mat-list-icon>clear</mat-icon>
+        <div mat-line *ngIf="sidenavWidth > 4">Clear Filters</div>
+      </mat-list-option>
+    </mat-selection-list>
+	</mat-sidenav>
+
+	<div layout="row" class="example-sidenav-content">
+	</div>
+</mat-sidenav-container>

@@ -17,6 +17,7 @@
 .mat-list-item {
   color: #71757d;
 }
+
 .mat-list-item:hover,
 .mat-list-item.list-item-active{
   color: #3bada2;
