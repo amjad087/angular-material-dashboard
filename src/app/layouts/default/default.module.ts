@@ -1,5 +1,5 @@
+import { LocationDialogComponent } from './../../modules/contact-search/location-dialog/location-dialog.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ContactDialogComponent } from './../../modules/contact-search/contact-dialog/contact-dialog.component';
 import { ContactSearchModule } from './../../modules/contact-search/contact-search.module';
 import { SharedModule } from './../../shared/shared.module';
 import { RouterModule } from '@angular/router';
@@ -11,7 +11,9 @@ import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
+import { ContactDialogComponent } from './../../modules/contact-search/contact-dialog/contact-dialog.component';
 import { DefaultComponent } from './default.component';
 import { DashboardComponent } from './../../modules/dashboard/dashboard.component';
 import { ContactSearchComponent } from './../../modules/contact-search/contact-search.component';
@@ -25,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     PostsComponent,
     ContactSearchComponent,
     ContactDialogComponent,
+    LocationDialogComponent
 
   ],
   imports: [
@@ -38,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSlideToggleModule,
     FormsModule,
     HttpClientModule
 

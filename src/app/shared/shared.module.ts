@@ -13,6 +13,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderComponent } from './components/header/header.component';
     MatDividerModule,
     MatInputModule,
     MatAutocompleteModule,
-    RouterModule
+    RouterModule,
+    MatFormFieldModule
   ],
   exports: [
     HeaderComponent,
@@ -39,8 +41,10 @@ import { HeaderComponent } from './components/header/header.component';
     MatListModule,
     MatIconModule,
     FlexLayoutModule,
-    MatDividerModule
-
+    MatDividerModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatFormFieldModule
   ]
 })
 export class SharedModule { }

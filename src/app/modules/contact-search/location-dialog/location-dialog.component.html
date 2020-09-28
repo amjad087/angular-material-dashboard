@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+  <div class="dialog-header">
+    <h2>Location</h2>
+    <button type="button" class="btn btn--green" (click) = "applyFilters()">
+      Apply
+    </button>
+  </div>
+  <div class="dialog-header">
+      <h2>&nbsp;</h2>
+      <a>Clear Filters</a>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-accordion>
+    <div class="toggle-location">
+      <mat-slide-toggle (change) = "toggleLocation($event)">{{locationType}}</mat-slide-toggle>
+      <p>{{locationMessage}}</p>
+    </div>
+    <!-- Outer Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Country
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Clearable input"/>
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <!-- End Outer Panel -->
+  </mat-accordion>
+
+</div>

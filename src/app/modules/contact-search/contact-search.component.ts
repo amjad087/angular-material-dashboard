@@ -1,3 +1,4 @@
+import { LocationDialogComponent } from './location-dialog/location-dialog.component';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {HttpClient} from '@angular/common/http';
@@ -72,7 +73,7 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
   showFiller = false;
   sidenavWidth = 18;
 
-  displayedColumns: string[] = ['contact', 'imageUrl', 'name', 'title', 'phone', 'email'];
+  displayedColumns: string[] = ['imageUrl', 'contact', 'name', 'title', 'phone', 'email'];
   dataSource = [];
 
   industrySub: Subscription;
@@ -86,7 +87,7 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
   // @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   // @ViewChild(MatSort, { static: false }) sort: MatSort;
 
-  constructor(public dialog: MatDialog, private _httpClient: HttpClient) { }
+  constructor(public dialog: MatDialog, public locDialog: MatDialog, private _httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -135,6 +136,30 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
       rightPos += 17;
     }
     const dialogRef = this.dialog.open(ContactDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    })
+  }
+
+  // Location Dialog
+  onShowLocDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(LocationDialogComponent, {
 
       data: { trigger: target, leftPos: rightPos },
       backdropClass: 'backdropBackground',
