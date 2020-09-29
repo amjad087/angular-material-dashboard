@@ -8,11 +8,15 @@ import { CommonModule } from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { DefaultComponent } from './default.component';
 import { DashboardComponent } from './../../modules/dashboard/dashboard.component';
 import { ContactSearchComponent } from './../../modules/contact-search/contact-search.component';
 import { PostsComponent } from './../../modules/posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { PostsComponent } from './../../modules/posts/posts.component';
     MatSidenavModule,
     MatExpansionModule,
     MatCheckboxModule,
-    FormsModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    FormsModule,
+    HttpClientModule
 
   ],
   exports: [

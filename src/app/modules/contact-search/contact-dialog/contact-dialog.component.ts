@@ -1,6 +1,7 @@
 import { Component, ElementRef, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import {ThemePalette} from '@angular/material/core';
+import { Subject } from 'rxjs';
 
 export interface Task {
   name: string;
@@ -20,6 +21,7 @@ export class ContactDialogComponent implements OnInit {
   private readonly triggerElementRef: ElementRef;
   leftPos: number;
   panelOpenState = false;
+  flitersChanged = new Subject<{filters: string[]}>();
 
   agricultureTask: Task = {
     name: 'Agriculture',
@@ -297,6 +299,13 @@ export class ContactDialogComponent implements OnInit {
       return;
     }
     this.retailTask.subtasks.forEach(t => t.completed = completed);
+  }
+
+  applyFilters() {
+    const filters: string[] = [];
+    this.flitersChanged.next({filters});
+
+    this.matDialogRef.close();
   }
 
 }

@@ -1,11 +1,8 @@
-:host {
-  overflow: hidden;
-}
 
-::ng-deep .mat-drawer-inner-container,
+/* ::ng-deep .mat-drawer-inner-container,
 ::ng-deep .mat-drawer {
   overflow: hidden !important;
-}
+} */
 .mat-list-base {
   padding-top: 0;
 }
@@ -15,6 +12,22 @@
 }
 .iconsize-16 {
   font-size: 16px;
+}
+.img-url{
+  max-width: 30px;
+  max-height: 30px;
+}
+
+img {
+  max-width: 30px;
+  max-height: 30px;
+}
+.empty-page {
+  min-height: 535px;
+  align-items: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .btnSaveFilters {
@@ -175,3 +188,10 @@ h3 {
   justify-content: center;
   align-items: center;
 }
+
+.search-table {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
