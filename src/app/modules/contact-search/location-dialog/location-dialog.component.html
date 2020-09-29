@@ -15,19 +15,111 @@
       <mat-slide-toggle (change) = "toggleLocation($event)">{{locationType}}</mat-slide-toggle>
       <p>{{locationMessage}}</p>
     </div>
-    <!-- Outer Expansion Panel -->
+    <!-- By Country Expansion Panel -->
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
           By Country
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-form-field class="example-form-field">
-        <input matInput type="text" placeholder="Clearable input"/>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Select Country" aria-label="Select Country" matInput [matAutocomplete]="auto">
         <button mat-button matSuffix mat-icon-button aria-label="Clear">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let country of filteredCountries" [value]="selectedCountries">
+              <div (click)="optionLocationCountriesClicked($event, country)">
+                  <mat-checkbox [checked]="country.selected" (change)="toggleLocationCountrySelection(country)" (click)="$event.stopPropagation()">
+                      {{ country.country }}
+                  </mat-checkbox>
+              </div>
+          </mat-option>
+      </mat-autocomplete>
+    </mat-expansion-panel>
+    <!-- By Region Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Region
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item> <mat-checkbox>AMER</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>APAC</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>EMEA</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>LATAM</mat-checkbox> </mat-list-item>
+       </mat-list>
+    </mat-expansion-panel>
+    <!-- By State Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By State
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search State" aria-label="Search State" matInput [matAutocomplete]="auto">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <!-- By County Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By County
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search County" aria-label="Search County" matInput [matAutocomplete]="auto">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <!-- By Metro Area Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Metro Area
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search Metro Area" aria-label="Search Metro Area" matInput [matAutocomplete]="auto">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <!-- By City Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By City
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search City" matInput [matAutocomplete]="auto">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-expansion-panel>
+    <!-- By Zip Code Expansion Panel -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Zip Code
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Enter zip code(s) below</p>
+      <div class="zip-code">
+        <input type="text" placeholder="Zip">
+        <input type="text" placeholder="Code">
+      </div>
     </mat-expansion-panel>
     <!-- End Outer Panel -->
   </mat-accordion>

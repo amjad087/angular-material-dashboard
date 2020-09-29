@@ -26,6 +26,25 @@ export class LocationDialogComponent implements OnInit {
   customCollapsedHeight = '30px';
   customExpandedHeight = '30px';
 
+  filteredCountries = [
+    { country: 'Afghanistan', selected: false},
+    { country: 'Bangladesh', selected: false},
+    { country: 'China', selected: false},
+    { country: 'Denmark', selected: false},
+    { country: 'England', selected: false},
+    { country: 'France', selected: false},
+    { country: 'Germany', selected: false},
+    { country: 'Holland', selected: false},
+    { country: 'India', selected: false},
+    { country: 'Iran', selected: false},
+    { country: 'Luxumberg', selected: false},
+    { country: 'Myanmar', selected: false},
+    { country: 'North Korea', selected: false},
+    { country: 'Pakistan', selected: false},
+    { country: 'Turkey', selected: false},
+  ];
+  selectedCountries = [];
+
   locationMessage = 'You\'re currently filtering by company location. To filter by contact location, please toggle right.';
   locationType = 'By Company Location';
   constructor(matDialogRef: MatDialogRef<LocationDialogComponent>,
@@ -65,6 +84,14 @@ export class LocationDialogComponent implements OnInit {
       this.locationMessage = 'You\'re currently filtering by company location. To filter by contact location, please toggle right.';
       this.locationType = 'By Company Location';
     }
+  }
+
+  optionLocationCountriesClicked(event, country) {
+
+  }
+
+  toggleLocationCountrySelection(country) {
+
   }
 
 }
