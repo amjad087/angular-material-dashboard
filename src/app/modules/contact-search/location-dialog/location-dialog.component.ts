@@ -47,7 +47,8 @@ export class LocationDialogComponent implements OnInit {
 
   locationMessage = 'You\'re currently filtering by company location. To filter by contact location, please toggle right.';
   locationType = 'By Company Location';
-  constructor(matDialogRef: MatDialogRef<LocationDialogComponent>,
+  constructor(
+    matDialogRef: MatDialogRef<LocationDialogComponent>,
     @Inject (MAT_DIALOG_DATA) data: { trigger: ElementRef, leftPos }) {
     this.matDialogRef = matDialogRef;
     this.triggerElementRef = data.trigger;

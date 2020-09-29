@@ -1,0 +1,140 @@
+.dialog-header {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-left: 10px;
+
+}
+
+.example-list-section {
+  overflow: auto;
+  white-space: nowrap;
+  text-overflow: auto;
+  width: 100%;
+  display: inline-block;
+}
+.example-section {
+  margin: 2px 0;
+}
+
+.example-margin {
+  margin: 0 2px;
+}
+element.style {
+  height: 30px;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #5bc3b4 !important;
+  color: #5bc3b4;
+}
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+/*
+::ng-deep .mat-checkbox:hover {
+  ::ng-deep .mat-checkbox-frame {
+    border-color: #ff2222 !important;
+  }
+} */
+.mat-dialog-content {
+  white-space: pre-line;
+}
+
+ul {
+  margin-top: 0;
+  padding-top: 0;
+  list-style-type: none;
+  padding-inline-start: 5px;
+
+}
+
+.mat-expansion-panel-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: inherit;
+  position: relative;
+  height: 40px;
+}
+.toggle-location {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.zip-code {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+mat-list-item,
+mat-option {
+  max-height: 24px;
+}
+.mat-expansion-panel-body {
+  padding: 0 12px 16px;
+}
+.filter__tree-body {
+  background-color: white;
+  border-bottom: 1px solid #dee0e6;
+  margin-bottom: 15px;
+  padding: 20px 15px;
+}
+
+p.btn__text {
+  color: #fff;
+  font: 14px Inter, sans-serif;
+}
+
+.btn {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 32px;
+  min-height: 32px;
+  padding: 0 24px;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.btn--green {
+  background-color: #5bc3b4;
+  border: 1px solid #5bc3b4;
+  color: #fff;
+}
+
+.btn {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 32px;
+  min-height: 32px;
+  padding: 0 24px;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  vertical-align: baseline;
+}

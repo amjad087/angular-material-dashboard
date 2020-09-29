@@ -1,0 +1,28 @@
+<div mat-dialog-content>
+  <div class="dialog-header">
+    <h2>Entrepreneurs' Gender</h2>
+    <button type="button" class="btn btn--green" (click) = "applyFilters()">
+      Apply
+    </button>
+  </div>
+  <div class="dialog-header">
+      <h2>&nbsp;</h2>
+      <a>Clear Filters</a>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-accordion>
+    <!-- Legal Status -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Gender
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item> <mat-checkbox>AMER</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>APAC</mat-checkbox> </mat-list-item>
+       </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

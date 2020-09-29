@@ -9,11 +9,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSliderModule} from '@angular/material/slider';
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatAutocompleteModule,
     RouterModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSliderModule,
+    Ng5SliderModule
   ],
   exports: [
     HeaderComponent,
@@ -44,7 +48,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDividerModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSliderModule,
+    Ng5SliderModule
   ]
 })
 export class SharedModule { }

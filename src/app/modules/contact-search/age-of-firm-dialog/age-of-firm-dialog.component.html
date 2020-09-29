@@ -1,0 +1,54 @@
+<div mat-dialog-content>
+  <div class="dialog-header">
+    <h2>Age of Firm</h2>
+    <button type="button" class="btn btn--green" (click) = "applyFilters()">
+      Apply
+    </button>
+  </div>
+  <div class="dialog-header">
+      <h2>&nbsp;</h2>
+      <a>Clear Filters</a>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-accordion>
+    <!-- Pre Defined Range -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Pre-Defined Range
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item> <mat-checkbox>AMER</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>APAC</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>EMEA</mat-checkbox> </mat-list-item>
+        <mat-list-item> <mat-checkbox>LATAM</mat-checkbox> </mat-list-item>
+       </mat-list>
+    </mat-expansion-panel>
+    <!-- custom Range -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          By Custom Range
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="range-slider">
+        <h5>Age of Firm from {{value}} to {{highValue}} </h5>
+        <ng5-slider
+         [(value)]="value"
+         [(highValue)]="highValue"
+         [options]="options"
+         [manualRefresh]="slidersRefresh">
+        </ng5-slider>
+        <ul>
+          <li>1981</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>2020</li>
+        </ul>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

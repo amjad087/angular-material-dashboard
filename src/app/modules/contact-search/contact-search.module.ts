@@ -7,7 +7,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { ContactMainComponent } from './contact-main/contact-main.component';
 import { ContactSidebarComponent } from './contact-sidebar/contact-sidebar.component';
 
-
 @NgModule({
   declarations: [
     ContactSidebarComponent,

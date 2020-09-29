@@ -1,20 +1,16 @@
-import { LocationDialogComponent } from './location-dialog/location-dialog.component';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {HttpClient} from '@angular/common/http';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {merge, Observable, of as observableOf, Subscription} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import {Subscription} from 'rxjs';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  email: string;
-}
+import { LocationDialogComponent } from './location-dialog/location-dialog.component';
+import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { EmployeesCountDialogComponent } from './employees-count-dialog/employees-count-dialog.component';
+import { BranchesCountDialogComponent } from './branches-count-dialog/branches-count-dialog.component';
+import { PlantAndMachineryDialogComponent } from './plant-and-machinery-dialog/plant-and-machinery-dialog.component';
+import { GenderDialogComponent } from './gender-dialog/gender-dialog.component';
+import { BankingWithDialogComponent } from './banking-with-dialog/banking-with-dialog.component';
+import { EntityTypeDialogComponent } from './entity-type-dialog/entity-type-dialog.component';
+import { AgeOfFirmDialogComponent } from './age-of-firm-dialog/age-of-firm-dialog.component';
 
 export interface Companies {
   contact: string;
@@ -46,23 +42,6 @@ const SEARCH_DATA: Companies[] = [
   {contact: 'Pat Hurm', name: 'Apple Ince', title: 'CEO', phone: '(812) 479-5447', email: 'test@email.com', imageUrl: 'https://cnet3.cbsistatic.com/img/il6jwdZY19bL9QEDR5x6zNjd55Y=/0x404:828x1603/940x0/2020/05/18/ef3e4846-00d1-4b6b-8647-d876b73b6b3e/fb-avatar.jpg'},
   {contact: 'Pat Hurm', name: 'Apple Ince', title: 'CEO', phone: '(812) 479-5447', email: 'test@email.com', imageUrl: 'https://cnet3.cbsistatic.com/img/il6jwdZY19bL9QEDR5x6zNjd55Y=/0x404:828x1603/940x0/2020/05/18/ef3e4846-00d1-4b6b-8647-d876b73b6b3e/fb-avatar.jpg'},
 ];
-// const SEARCH_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', email: 'test@email.com'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', email: 'test@email.com'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', email: 'test@email.com'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', email: 'test@email.com'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', email: 'test@email.com'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', email: 'test@email.com'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', email: 'test@email.com'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', email: 'test@email.com'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', email: 'test@email.com'},
-// ];
 
 @Component({
   selector: 'app-contact-search',
@@ -87,41 +66,10 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
   // @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   // @ViewChild(MatSort, { static: false }) sort: MatSort;
 
-  constructor(public dialog: MatDialog, public locDialog: MatDialog, private _httpClient: HttpClient) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
-  // ngAfterViewInit() {
-  //   this.exampleDatabase = new ExampleHttpDatabase(this._httpClient);
-
-  //   // If the user changes the sort order, reset back to the first page.
-  //   this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
-
-  //   merge(this.sort.sortChange, this.paginator.page)
-  //     .pipe(
-  //       startWith({}),
-  //       switchMap(() => {
-  //         this.isLoadingResults = true;
-  //         return this.exampleDatabase!.getRepoIssues(
-  //           this.sort.active, this.sort.direction, this.paginator.pageIndex);
-  //       }),
-  //       map(data => {
-  //         // Flip flag to show that loading has finished.
-  //         this.isLoadingResults = false;
-  //         this.isRateLimitReached = false;
-  //         this.resultsLength = data.total_count;
-
-  //         return data.items;
-  //       }),
-  //       catchError(() => {
-  //         this.isLoadingResults = false;
-  //         // Catch if the GitHub API has reached its rate limit. Return empty data.
-  //         this.isRateLimitReached = true;
-  //         return observableOf([]);
-  //       })
-  //     ).subscribe(data => this.data = data);
-  // }
 
   toggleNavWidth() {
     this.sidenavWidth = this.sidenavWidth === 4 ? this.sidenavWidth = 18.5 : this.sidenavWidth = 4;
@@ -147,7 +95,7 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
     });
     this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
       this.applyFilters(filters);
-    })
+    });
   }
 
   // Location Dialog
@@ -171,8 +119,177 @@ export class ContactSearchComponent implements OnInit, OnDestroy {
     });
     this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
       this.applyFilters(filters);
-    })
+    });
   }
+
+  // AgeOfFirmDialog
+  onShowAgeOfFirmDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(AgeOfFirmDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+   // Entity Type Dialog
+   onShowEntityTypeDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(EntityTypeDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+  // Gender Dialog
+  onShowGendereDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(GenderDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+  // Plant and Machinery Dialog
+  onShowPlanAndMachineryDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(PlantAndMachineryDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+  // Branches Count Dialog
+  onShowBranchesCountDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(BranchesCountDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+  // Employees Count Dialog
+  onShowEmployeesCountDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(EmployeesCountDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
+  // Banking with Dialog
+  onShowBankingWithDialog(evt: MouseEvent): void {
+    const target = new ElementRef(evt.currentTarget);
+    let rightPos = (target.nativeElement as HTMLElement).getBoundingClientRect().right;
+    if (this.sidenavWidth === 4) {
+      rightPos += 7;
+    } else {
+      rightPos += 17;
+    }
+    const dialogRef = this.dialog.open(BankingWithDialogComponent, {
+
+      data: { trigger: target, leftPos: rightPos },
+      backdropClass: 'backdropBackground',
+      maxHeight: '80vh',
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+    });
+    this.industrySub = dialogRef.componentInstance.flitersChanged.subscribe(filters => {
+      this.applyFilters(filters);
+    });
+  }
+
   applyFilters(filters: any) {
     this.showSearcData = true;
     this.dataSource = SEARCH_DATA;

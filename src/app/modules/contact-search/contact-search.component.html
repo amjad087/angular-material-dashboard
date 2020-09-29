@@ -32,31 +32,31 @@
         <mat-icon mat-list-icon>location_on</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Location</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowAgeOfFirmDialog($event)">
         <mat-icon mat-list-icon>date_range</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Age of Firm</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowEntityTypeDialog($event)">
         <mat-icon mat-list-icon>category</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Entity Type</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowGendereDialog($event)">
         <mat-icon mat-list-icon>wc</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Gender</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowPlanAndMachineryDialog($event)">
         <mat-icon mat-list-icon>palette</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Plant & Machinery</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowBranchesCountDialog($event)">
         <mat-icon mat-list-icon>account_tree</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Branches Count</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowEmployeesCountDialog($event)">
         <mat-icon mat-list-icon>people</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Employees Count</div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option (click) = "onShowBankingWithDialog($event)">
         <mat-icon mat-list-icon>monetization_on</mat-icon>
         <div mat-line *ngIf="sidenavWidth > 4">Banking with</div>
       </mat-list-option>
@@ -79,6 +79,12 @@
       <h3>Most searched combination.</h3>
       <h3>MSMEs with proven digital footprints like 'registered with Amazon".</h3>
       <h3>MSMEs who are also Star Exporters.</h3>
+      <h3>Dealers & Distributors of Cement, TMT, and other building materials.</h3>
+      <h3>Partnerships with more than 1 branch or location</h3>
+      <h3>Producer companies involved in Organic Farming</h3>
+      <h3>Dealers & Distributors of Cement, TMT, and other building materials.</h3>
+      <h3>Partnerships with more than 1 branch or location</h3>
+      <h3>Producer companies involved in Organic Farming</h3>
       <h3>Dealers & Distributors of Cement, TMT, and other building materials.</h3>
       <h3>Partnerships with more than 1 branch or location</h3>
       <h3>Producer companies involved in Organic Farming</h3>

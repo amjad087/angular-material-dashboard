@@ -1,0 +1,234 @@
+<div mat-dialog-content>
+  <div class="dialog-header">
+    <h2>Banking with</h2>
+    <button type="button" class="btn btn--green" (click) = "applyFilters()">
+      Apply
+    </button>
+  </div>
+  <div class="dialog-header">
+      <h2>&nbsp;</h2>
+      <a>Clear Filters</a>
+  </div>
+  <mat-divider></mat-divider>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Manufacturing Sector
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-accordion>
+        <!-- Agriculture Panel -->
+        <mat-expansion-panel #agriculture>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allAgricultureComplete"
+                [indeterminate]="someAgricultureComplete()"
+                (change)="setAgricultureAll($event.checked)">
+                {{agricultureTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of agricultureTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllAgricultureComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- Mining Panel -->
+        <mat-expansion-panel #mining>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allMiningComplete"
+                [indeterminate]="someMiningComplete()"
+                (change)="setMiningAll($event.checked)">
+                {{miningTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of miningTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllMiningComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- Construction Panel -->
+        <mat-expansion-panel #construction>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allConstructionComplete"
+                [indeterminate]="someConstructionComplete()"
+                (change)="setConstructionAll($event.checked)">
+                {{constructionTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of constructionTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllConstructionComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- Manufacturing Panel -->
+        <mat-expansion-panel #manufacturing>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allManufacturingComplete"
+                [indeterminate]="someManufacturingComplete()"
+                (change)="setManufacturingAll($event.checked)">
+                {{manufacturingTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of manufacturingTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllManufacturingComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- Transportation Panel -->
+        <mat-expansion-panel #transportation>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allTransportationComplete"
+                [indeterminate]="someTransportationComplete()"
+                (change)="setTransportationAll($event.checked)">
+                {{transportationTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of transportationTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllTransportationComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </mat-expansion-panel>
+        <!-- Wholesale Panel -->
+        <mat-expansion-panel #wholesale>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allWholesaleComplete"
+                [indeterminate]="someWholesaleComplete()"
+                (change)="setWholesaleAll($event.checked)">
+                {{wholesaleTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of wholesaleTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllWholesaleComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- Retail Panel -->
+        <mat-expansion-panel #retail>
+          <mat-expansion-panel-header
+            [collapsedHeight]="customCollapsedHeight"
+            [expandedHeight]="customExpandedHeight">
+            <mat-panel-title>
+              <mat-checkbox
+                [checked]="allRetailComplete"
+                [indeterminate]="someRetailComplete()"
+                (change)="setRetailAll($event.checked)">
+                {{retailTask.name}}
+              </mat-checkbox>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of retailTask.subtasks">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  (ngModelChange)="updateAllRetailComplete()"
+                >
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </mat-expansion-panel>
+        <!-- end panel -->
+      </mat-accordion>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Service Sector
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Search by Keywords
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
