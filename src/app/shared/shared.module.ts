@@ -12,16 +12,20 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSliderModule} from '@angular/material/slider';
 import { Ng5SliderModule } from 'ng5-slider';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ChartsComponent } from './widgets/charts/charts.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { HeaderComponent } from './components/header/header.component';
     RouterModule,
     MatFormFieldModule,
     MatSliderModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    MatTooltipModule,
+    HighchartsChartModule
   ],
   exports: [
     HeaderComponent,
@@ -50,7 +56,9 @@ import { HeaderComponent } from './components/header/header.component';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatSliderModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    MatTooltipModule,
+    ChartsComponent
   ]
 })
 export class SharedModule { }

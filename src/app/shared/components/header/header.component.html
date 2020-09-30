@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <mat-icon class="icon-btn">menu</mat-icon>
-    <span> APP LOGO</span>
+    <span style="margin-right: 20px;"> APP LOGO</span>
+    <mat-icon class="icon-btn" (click) = "toggleSideNav()">menu</mat-icon>
     <input type="text"
          placeholder="Search for a street"
          [matAutocomplete]="auto">

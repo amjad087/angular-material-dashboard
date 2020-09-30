@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,9 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   filteredStreets: Observable<string[]>;
+  collapsedNavbar = false;
+  @Output() navbarWidthChanged = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleSideNav() {
+    this.collapsedNavbar = !this.collapsedNavbar;
+    this.navbarWidthChanged.emit(this.collapsedNavbar);
   }
 
 }

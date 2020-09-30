@@ -128,8 +128,29 @@ example-sidenav {
 }
 example-sidenav-content {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.search-data-table {
+  width: 65%;
+}
+
+.charts-statistics {
+  width: 28%;
+  margin-right: 20px;
+}
 .filter__tree {
   background-color: #fff;
   border: 1px solid #eee;

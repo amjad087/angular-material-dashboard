@@ -16,31 +16,40 @@
   <mat-divider></mat-divider> -->
 
   <!-- <h2 matSubheader>Tools</h2> -->
-  <a mat-list-item [routerLink]="['/']" routerLinkActive="list-item-active" >
-    <mat-icon>person</mat-icon> <span class="icon-spacer">Contact Search</span>
-  </a>
 
-  <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="list-item-active" >
-    <mat-icon>business</mat-icon> <span class="icon-spacer">Company Search </span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>format_list_bulleted</mat-icon> <span class="icon-spacer">My Lists</span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>search</mat-icon> <span class="icon-spacer">Lookup</span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>check_circle</mat-icon> <span class="icon-spacer">Verify</span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>receipt</mat-icon> <span class="icon-spacer">Enrich</span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>mic</mat-icon> <span class="icon-spacer">Events</span>
-  </a>
-  <a mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" >
-    <mat-icon>folder_special</mat-icon> <span class="icon-spacer">Resources</span>
-  </a>
+
+  <mat-list-item mat-list-item [routerLink]="['/']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Contact Search'" matTooltipPosition="right">
+    <mat-icon>person</mat-icon>
+    <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Contact Search</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/dashboard']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Company Search'" matTooltipPosition="right">
+    <mat-icon>business</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Company Search </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'My Lists'" matTooltipPosition="right">
+    <mat-icon>format_list_bulleted</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">My Lists</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Lookup'" matTooltipPosition="right">
+    <mat-icon>search</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Lookup</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Verify'" matTooltipPosition="right">
+    <mat-icon>check_circle</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Verify</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Enrich'" matTooltipPosition="right">
+    <mat-icon>receipt</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Enrich</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Events'" matTooltipPosition="right">
+    <mat-icon>mic</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Events</span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink]="['/posts']" routerLinkActive="list-item-active" [matTooltip]="sidebarWidth === 210 ? null : 'Resources'" matTooltipPosition="right">
+    <mat-icon>folder_special</mat-icon> <span class="icon-spacer" *ngIf = "sidebarWidth === 210">Resources</span>
+  </mat-list-item>
 
 
 </mat-nav-list>
